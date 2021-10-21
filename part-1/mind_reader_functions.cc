@@ -67,12 +67,16 @@ std::string FaceValue(const std::string& card) {
 /// \remark This is in the inverse of NumericValueToFaceValue()
 int NumericValue(const std::string& face_value) {
   int numeric_value = 0;
-  if (face_value == "1" || "K" || "Q" || "J" || "k" || "q" || "j") {
+  if ((face_value == "J") || (face_value == "j")) {
     numeric_value = 10;
-  } else if (face_value == "A") {
+  } else if ((face_value == "Q") || (face_value == "q")) {
     numeric_value = 11;
+  } else if ((face_value == "K") || (face_value == "k")) {
+    numeric_value = 12;
+  } else if (face_value == "A") {
+    numeric_value = 0;
   } else {
-    numeric_value = stoi(face_value);
+    numeric_value = stoi(face_value) - 1;
   }
   return numeric_value;
 }
@@ -117,7 +121,8 @@ int NumericValue(const std::string& face_value) {
 /// 52
 int DeckOrderValue(const std::string& card) {
   int deck_order_value = 0;
-  int suit's_offset = 0;
+  string card_one = "";
+  deck_order_value = NumericValue(FaceValue(card_one)) * 4 + SuitOffset(Suit(card_one));
 
   // TODO: Implement this function given the explanation given above.
   return deck_order_value;
@@ -148,16 +153,13 @@ std::string NumericValueToFaceValue(int value) {
 /// \returns An int between [1,4] representing the rank of the given suit
 int SuitOffset(const std::string& suit) {
   int offset = 0;
-  if(suit = "C"){
+  if(suit == "C"){
     offset = 1;
-  }
-  if(suit = "D"){
+  } else if(suit == "D"){
     offset = 2;
-  }
-  if(suit = "H"){
+  } else if(suit == "H"){
     offset = 3;
-  }
-  if(suit = "S"){
+  } else if(suit == "S"){
     offset = 4;
   }
   //offset = stoi(suit);
