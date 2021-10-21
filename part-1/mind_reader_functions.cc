@@ -67,7 +67,13 @@ std::string FaceValue(const std::string& card) {
 /// \remark This is in the inverse of NumericValueToFaceValue()
 int NumericValue(const std::string& face_value) {
   int numeric_value = 0;
-  // TODO: Implement this function given the explanation given above.
+  if (face_value == "1" || "K" || "Q" || "J" || "k" || "q" || "j") {
+    numeric_value = 10;
+  } else if (face_value == "A") {
+    numeric_value = 11;
+  } else {
+    numeric_value = stoi(face_value);
+  }
   return numeric_value;
 }
 
@@ -111,6 +117,8 @@ int NumericValue(const std::string& face_value) {
 /// 52
 int DeckOrderValue(const std::string& card) {
   int deck_order_value = 0;
+  int suit's_offset = 0;
+
   // TODO: Implement this function given the explanation given above.
   return deck_order_value;
 }
@@ -126,6 +134,7 @@ int DeckOrderValue(const std::string& card) {
 /// \remark This is the inverse of NumericValue()
 std::string NumericValueToFaceValue(int value) {
   string face_value;
+
   // TODO: Implement this function given the explanation given above.
   return face_value;
 }
@@ -138,9 +147,20 @@ std::string NumericValueToFaceValue(int value) {
 ///
 /// \returns An int between [1,4] representing the rank of the given suit
 int SuitOffset(const std::string& suit) {
-  // This follows *alphabetical order* CDHS
-  // not CHSD
   int offset = 0;
+  if(suit = "C"){
+    offset = 1;
+  }
+  if(suit = "D"){
+    offset = 2;
+  }
+  if(suit = "H"){
+    offset = 3;
+  }
+  if(suit = "S"){
+    offset = 4;
+  }
+  //offset = stoi(suit);
   // TODO: Implement this function given the explanation given above.
   return offset;
 }
@@ -162,6 +182,7 @@ int SuitOffset(const std::string& suit) {
 /// \returns The simple_value of the secret card as an int (0, 1, ..., 11, 12)
 int FitchCheneySecretCardValue(int base_value, int steps) {
   int card_value = 0;
+
   // TODO: Implement this function given the explanation given above.
   return card_value;
 }
