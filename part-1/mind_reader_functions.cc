@@ -149,19 +149,16 @@ int DeckOrderValue(const std::string& card) {
 /// \remark This is the inverse of NumericValue()
 std::string NumericValueToFaceValue(int value) {
   string face_value;
-  //int numeric_value = 0;
-  if (NumericValue(face_value) == 10) {
+  if (value == 10) {
     face_value = "J";
-  } else if (NumericValue(face_value) == 11) {
+  } else if (value == 11) {
     face_value = "Q";
-  } else if (NumericValue(face_value) == 12) {
+  } else if (value == 12) {
     face_value = "K";
-  } else if (NumericValue(face_value) == 0) {
+  } else if (value == 0) {
     face_value = "A";
   } else {
-    int num = 0;
-    num = NumericValue(face_value) + 1;
-    face_value = to_string(num);
+    face_value = to_string(value + 1);
   }
   return face_value;
 }
