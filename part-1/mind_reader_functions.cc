@@ -6,7 +6,7 @@
 //
 // Lab 08-01
 //
-// This lab makes animations
+// This lab calculates card tricks
 //
 
 #include "mind_reader_functions.h"
@@ -203,6 +203,7 @@ int SuitOffset(const std::string& suit) {
 /// \returns The simple_value of the secret card as an int (0, 1, ..., 11, 12)
 int FitchCheneySecretCardValue(int base_value, int steps) {
   int card_value = 0;
+  card_value = (base_value + steps) % 13;
 
   // TODO: Implement this function given the explanation given above.
   return card_value;
